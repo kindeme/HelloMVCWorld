@@ -1,5 +1,6 @@
 ﻿
 @model HelloMVCWorld.Models.Movie
+
 @{
     Layout = null;
 }
@@ -11,38 +12,78 @@
     <title>@Model.Title</title>
 </head>
 <body>
-    @{ 
+    @{
         string name = "Flore";
-       
+
     }
     The movie <b>@Model.Title</b> was released @Model.ReleaseDate.ToLongDateString();
     <p>Hello, world - my name is @name and the current date is : @DateTime.Now.ToString()</p>
-    @{ 
+    @{
         var helloWorld = "<b>Hello, world! </b>";
 
     }
     <p>@helloWorld</p>
     <p>@Html.Raw(helloWorld)</p>
-    @{ 
+    @{
         var name2 = "John Doe";
     }
     Hello, @(name2.Substring(0,4)). Your age is:<b>@(37 +5).</b>
 
-    @{ 
+    @{
         var sum = 32 + 10;
         var greeting = "Hello, world!";
         var text = "";
-        for(int i =0; i<3; i++)
+        for (int i = 0; i < 3; i++)
         {
             text += $" {greeting} the result is :  {sum}";
         }
     }
     <h2>CodeBlocks</h2>
-     @text
+    @text
 
-    @if(DateTime.Now.Year == 2042)
-            {
-                <span>The year 2042 has finally arrived!</span>
-            }
+    @if (DateTime.Now.Year == 2042)
+    {
+        <span>The year 2042 has finally arrived!</span>
+    }
+
+    @{
+        List<string> names = new List<string>()
+{
+            "John Doe",
+            "Jane Doe",
+            "Joe Doe",
+            "Jenna Doe",
+            "Doggy Doe"
+
+
+        };
+
+    }
+    <ul>
+        @foreach (string some in names)
+        {
+            <li>@some</li>
+        }
+    </ul>
+    @switch (DateTime.Now.DayOfWeek)
+    {
+        case DayOfWeek.Monday:
+            <span> Uh-oh...</span>
+            break;
+        case DayOfWeek.Friday:
+            <span> Weekend comming up!</span>
+            break;
+
+        case DayOfWeek.Saturday:
+        case DayOfWeek.Sunday:
+            <span> Finally weekend!</span>
+            break;
+
+        default:
+            <span> Nothing special about this day ...</span>
+            break;
+
+    }
+   
 </body>
 </html>
