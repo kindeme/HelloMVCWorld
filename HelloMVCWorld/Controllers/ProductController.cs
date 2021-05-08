@@ -18,11 +18,14 @@ namespace HelloMVCWorld.Controllers
             return View();
         }
 
-        [HttpPost]
-        public IActionResult Edit(Product product)
+        public IActionResult Details(int id)
         {
-            product.Save();
-            return Content("Product updated!");
+            Product product = new Product()
+            {
+                Title = "Toilet Paper",
+                Price = 1.99
+            };
+            return View(product);
         }
     }
 }
