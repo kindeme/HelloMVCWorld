@@ -84,6 +84,15 @@
             break;
 
     }
-   
+    @{
+        ViewData["Title"] = "Index";
+    }
+
+    <h2>Index</h2>
+
+    @await Html.PartialAsync("_Greeting")
+
+    <span>More stuff here....</span>
+
 </body>
 </html>

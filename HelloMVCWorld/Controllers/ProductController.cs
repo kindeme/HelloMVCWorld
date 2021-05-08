@@ -18,14 +18,12 @@ namespace HelloMVCWorld.Controllers
             return View();
         }
 
+     
         public IActionResult Details(int id)
         {
-            Product product = new Product()
-            {
-                Title = "Toilet Paper",
-                Price = 1.99
-            };
-            return View(product);
+            ViewBag.ProductTitle = "Toilet Paper";
+            ViewBag.ProductPrice = 1.99;
+            return View();
         }
     }
 }
