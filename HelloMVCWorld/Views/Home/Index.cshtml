@@ -93,6 +93,12 @@
     @await Html.PartialAsync("_Greeting")
 
     <span>More stuff here....</span>
+    <!-- reference a Layout-->
+    @{
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+
+    <p>Hello, world from layout!</p>
 
 </body>
 </html>
