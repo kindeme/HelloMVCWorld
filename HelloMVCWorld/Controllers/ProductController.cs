@@ -10,20 +10,17 @@ namespace HelloMVCWorld.Controllers
     {
         public IActionResult Index()
         {
-            return View();
-        }
-        [HttpGet]
-        public IActionResult Edit()
-        {
-            return View();
+            return Content("Product overview");
         }
 
-     
+        public IActionResult List()
+        {
+            return Content("Product list");
+        }
+
         public IActionResult Details(int id)
         {
-            ViewBag.ProductTitle = "Toilet Paper";
-            ViewBag.ProductPrice = 1.99;
-            return View();
+            return Content("Product details for #" + id);
         }
     }
 }

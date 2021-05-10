@@ -12,6 +12,8 @@ namespace HelloMVCWorld
 {
     public class Startup
     {
+        private const string Template = "Products/{action=Index}/{id?}";
+
         // This method gets called by the runtime. Use this method to add services to the container.
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
@@ -27,12 +29,18 @@ namespace HelloMVCWorld
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseRouting();
+            //app.UseRouting();
 
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapDefaultControllerRoute();
-            });
+            //app.UseEndpoints(endpoints =>
+            //{
+            //    endpoints.MapDefaultControllerRoute();
+            //});
+
+            app.UseMvc(routes =>
+    routes.MapRoute("Products", Template, new { controller = "Products" })
+    );
+
+);
         }
     }
 }
